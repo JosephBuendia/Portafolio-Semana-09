@@ -1,0 +1,77 @@
+/* css/pago.css — pasarela de pagos del cliente (usa las variables de base.css) */
+
+.pago-main {
+  max-width: 720px;
+  margin: 2.5rem auto 4rem;
+  padding-inline: 1.5rem;
+}
+
+.pago-main h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+.pago-intro { margin-bottom: 1.6rem; }
+
+.pago-card {
+  background: var(--navy-900);
+  border: 1px solid var(--navy-700);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem 1.6rem;
+  margin: 0 0 1.4rem;
+}
+
+.pago-card h2 { font-size: 1.25rem; margin-bottom: 0.9rem; }
+
+.pago-card label {
+  display: block;
+  margin: 0.9rem 0 0.35rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.pago-card input:not([type="radio"]),
+.pago-card select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: var(--navy-800);
+  color: var(--paper-100);
+  border: 1px solid var(--navy-600);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.pago-card input[aria-invalid="true"] { border-color: #ef4444; }
+
+/* Foco visible (accesibilidad) */
+.pago-card input:focus-visible,
+.pago-card select:focus-visible,
+.pago-card button:focus-visible,
+.opcion-metodo input:focus-visible {
+  outline: 3px solid var(--signal-400);
+  outline-offset: 2px;
+}
+
+.pago-total { margin: 1rem 0 0; color: var(--paper-100); font-size: 1.05rem; }
+.pago-total strong { font-family: var(--font-mono); font-size: 1.5rem; color: var(--signal-400); }
+
+.pago-metodos { display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; }
+.pago-metodos legend { padding-inline: 0.4rem; font-weight: 700; }
+.pago-card.pago-metodos label.opcion-metodo { display: flex; align-items: center; gap: 0.55rem; margin: 0.3rem 0; cursor: pointer; }
+
+.fila-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.marca { display: inline-block; min-height: 1.2em; margin-top: 0.3rem; color: var(--signal-400); font-family: var(--font-mono); font-size: 0.85rem; }
+.error { display: block; min-height: 1.1em; margin-top: 0.25rem; color: #fca5a5; font-size: 0.85rem; }
+
+.pago-card button[type="submit"] { margin-top: 1.4rem; width: 100%; cursor: pointer; }
+.pago-card button[disabled] { opacity: 0.6; cursor: wait; }
+
+#mensaje-pago { margin: 0 0 1.2rem; }
+#mensaje-pago:empty { display: none; }
+.mensaje { padding: 0.9rem 1.1rem; border-radius: var(--radius-sm); border: 1px solid; max-width: none; font-weight: 600; }
+.mensaje--info   { background: rgba(59, 130, 246, 0.12); border-color: #3b82f6; color: #bfdbfe; }
+.mensaje--exito  { background: rgba(16, 185, 129, 0.12); border-color: #10b981; color: #a7f3d0; }
+.mensaje--error  { background: rgba(239, 68, 68, 0.12);  border-color: #ef4444; color: #fecaca; }
+
+.pago-aviso { font-size: 0.8rem; color: var(--slate-400); border-top: 1px dashed var(--navy-600); padding-top: 1rem; max-width: none; }
+
+@media (max-width: 560px) {
+  .fila-2 { grid-template-columns: 1fr; }
+}
